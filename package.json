@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "node --test",
+    "build": "node src/app.js"
   },
   "keywords": [],
   "type": "commonjs",
-  "devDependencies": {
-    "jest": "^30.4.2"
-  }
+  "devDependencies": {}
 }
