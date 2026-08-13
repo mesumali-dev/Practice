@@ -11,13 +11,18 @@ on:
       - main
 
   workflow_dispatch:
-
+  
 permissions:
   contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
+      APP_ENV: ${{ secrets.APP_ENV }}
+      APP_VERSION: ${{ secrets.APP_VERSION }}
 
     steps:
       - name: Checkout repository
