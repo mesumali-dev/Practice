@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  test-and-build:
     runs-on: ubuntu-latest
 
     env:
@@ -34,12 +34,6 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Environment Variables Log
-        run: |
-          echo "APP_ENV: $APP_ENV"
-          echo "APP_VERSION: $APP_VERSION"
-          echo "API Key: $API_KEY"
-
       - name: Install dependencies
         run: npm ci
 
@@ -48,3 +42,10 @@ jobs:
 
       - name: Build application
         run: npm run build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: practice-app-build
+          path: dist/
+          retention-days: 5
