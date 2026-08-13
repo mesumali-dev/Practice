@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "node --test",
-    "build": "node -e \"console.log('Build successful')\""
+    "build": "node scripts/build.js"
   },
   "keywords": [],
   "type": "commonjs"
