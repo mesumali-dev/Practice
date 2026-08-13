@@ -1,0 +1,15 @@
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node --test",
+    "build": "node -e \"console.log('Build successful')\""
+  },
+  "keywords": [],
+  "type": "commonjs"
+}
