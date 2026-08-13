@@ -19,11 +19,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    env:
-      echo "API Key: ${{ secrets.API_KEY }}"
-      echo "APP_ENV: ${{ secrets.APP_ENV }}"
-      echo "APP_VERSION: ${{ secrets.APP_VERSION }}"
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,6 +28,16 @@ jobs:
         with:
           node-version: 22
           cache: npm
+
+      - name: Environment Variables
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          APP_ENV: ${{ secrets.APP_ENV }}
+          APP_VERSION: ${{ secrets.APP_VERSION }}
+        run: |
+          echo "API Key: ${{ secrets.API_KEY }}"
+          echo "APP_ENV: ${{ secrets.APP_ENV }}"
+          echo "APP_VERSION: ${{ secrets.APP_VERSION }}"
 
       - name: Install dependencies
         run: npm ci
